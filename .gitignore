@@ -1,2 +1,4 @@
 /vendor
 /artifacts/simple-image/kube-sample-apiserver
+/bin/
+/kube-sample-apiserver
