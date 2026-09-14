@@ -8,5 +8,5 @@ roleRef:
   name: aggregated-apiserver-clusterrole
 subjects:
 - kind: ServiceAccount
-  name: bucket-apiserver
+  name: apiserver
   namespace: bucket-apiserver
