@@ -65,7 +65,7 @@ type bucketStrategy struct {
 }
 
 func (bucketStrategy) NamespaceScoped() bool {
-	return true
+	return false
 }
 
 func (bucketStrategy) PrepareForCreate(ctx context.Context, obj runtime.Object) {
