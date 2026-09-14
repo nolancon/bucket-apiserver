@@ -29,6 +29,7 @@ import (
 	cache "k8s.io/client-go/tools/cache"
 	versioned "k8s.io/sample-apiserver/pkg/generated/clientset/versioned"
 	internalinterfaces "k8s.io/sample-apiserver/pkg/generated/informers/externalversions/internalinterfaces"
+	providerceph "k8s.io/sample-apiserver/pkg/generated/informers/externalversions/providerceph"
 	wardle "k8s.io/sample-apiserver/pkg/generated/informers/externalversions/wardle"
 )
 
@@ -254,7 +255,12 @@ type SharedInformerFactory interface {
 	// client.
 	InformerFor(obj runtime.Object, newFunc internalinterfaces.NewInformerFunc) cache.SharedIndexInformer
 
+	Providerceph() providerceph.Interface
 	Wardle() wardle.Interface
+}
+
+func (f *sharedInformerFactory) Providerceph() providerceph.Interface {
+	return providerceph.New(f, f.namespace, f.tweakListOptions)
 }
 
 func (f *sharedInformerFactory) Wardle() wardle.Interface {

@@ -25,12 +25,14 @@ import (
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"
+	providercephv1alpha1 "k8s.io/sample-apiserver/pkg/generated/clientset/versioned/typed/providerceph/v1alpha1"
 	wardlev1alpha1 "k8s.io/sample-apiserver/pkg/generated/clientset/versioned/typed/wardle/v1alpha1"
 	wardlev1beta1 "k8s.io/sample-apiserver/pkg/generated/clientset/versioned/typed/wardle/v1beta1"
 )
 
 type Interface interface {
 	Discovery() discovery.DiscoveryInterface
+	ProvidercephV1alpha1() providercephv1alpha1.ProvidercephV1alpha1Interface
 	WardleV1alpha1() wardlev1alpha1.WardleV1alpha1Interface
 	WardleV1beta1() wardlev1beta1.WardleV1beta1Interface
 }
@@ -38,8 +40,14 @@ type Interface interface {
 // Clientset contains the clients for groups.
 type Clientset struct {
 	*discovery.DiscoveryClient
-	wardleV1alpha1 *wardlev1alpha1.WardleV1alpha1Client
-	wardleV1beta1  *wardlev1beta1.WardleV1beta1Client
+	providercephV1alpha1 *providercephv1alpha1.ProvidercephV1alpha1Client
+	wardleV1alpha1       *wardlev1alpha1.WardleV1alpha1Client
+	wardleV1beta1        *wardlev1beta1.WardleV1beta1Client
+}
+
+// ProvidercephV1alpha1 retrieves the ProvidercephV1alpha1Client
+func (c *Clientset) ProvidercephV1alpha1() providercephv1alpha1.ProvidercephV1alpha1Interface {
+	return c.providercephV1alpha1
 }
 
 // WardleV1alpha1 retrieves the WardleV1alpha1Client
@@ -96,6 +104,10 @@ func NewForConfigAndClient(c *rest.Config, httpClient *http.Client) (*Clientset,
 
 	var cs Clientset
 	var err error
+	cs.providercephV1alpha1, err = providercephv1alpha1.NewForConfigAndClient(&configShallowCopy, httpClient)
+	if err != nil {
+		return nil, err
+	}
 	cs.wardleV1alpha1, err = wardlev1alpha1.NewForConfigAndClient(&configShallowCopy, httpClient)
 	if err != nil {
 		return nil, err
@@ -125,6 +137,7 @@ func NewForConfigOrDie(c *rest.Config) *Clientset {
 // New creates a new Clientset for the given RESTClient.
 func New(c rest.Interface) *Clientset {
 	var cs Clientset
+	cs.providercephV1alpha1 = providercephv1alpha1.New(c)
 	cs.wardleV1alpha1 = wardlev1alpha1.New(c)
 	cs.wardleV1beta1 = wardlev1beta1.New(c)
 

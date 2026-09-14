@@ -26,7 +26,6 @@ import (
 	watch "k8s.io/apimachinery/pkg/watch"
 	gentype "k8s.io/client-go/gentype"
 	wardlev1alpha1 "k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1"
-	applyconfigurationwardlev1alpha1 "k8s.io/sample-apiserver/pkg/generated/applyconfiguration/wardle/v1alpha1"
 	scheme "k8s.io/sample-apiserver/pkg/generated/clientset/versioned/scheme"
 )
 
@@ -46,19 +45,18 @@ type FischerInterface interface {
 	List(ctx context.Context, opts v1.ListOptions) (*wardlev1alpha1.FischerList, error)
 	Watch(ctx context.Context, opts v1.ListOptions) (watch.Interface, error)
 	Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *wardlev1alpha1.Fischer, err error)
-	Apply(ctx context.Context, fischer *applyconfigurationwardlev1alpha1.FischerApplyConfiguration, opts v1.ApplyOptions) (result *wardlev1alpha1.Fischer, err error)
 	FischerExpansion
 }
 
 // fischers implements FischerInterface
 type fischers struct {
-	*gentype.ClientWithListAndApply[*wardlev1alpha1.Fischer, *wardlev1alpha1.FischerList, *applyconfigurationwardlev1alpha1.FischerApplyConfiguration]
+	*gentype.ClientWithList[*wardlev1alpha1.Fischer, *wardlev1alpha1.FischerList]
 }
 
 // newFischers returns a Fischers
 func newFischers(c *WardleV1alpha1Client) *fischers {
 	return &fischers{
-		gentype.NewClientWithListAndApply[*wardlev1alpha1.Fischer, *wardlev1alpha1.FischerList, *applyconfigurationwardlev1alpha1.FischerApplyConfiguration](
+		gentype.NewClientWithList[*wardlev1alpha1.Fischer, *wardlev1alpha1.FischerList](
 			"fischers",
 			c.RESTClient(),
 			scheme.ParameterCodec,

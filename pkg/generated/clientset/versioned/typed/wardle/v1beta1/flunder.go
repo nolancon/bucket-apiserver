@@ -26,7 +26,6 @@ import (
 	watch "k8s.io/apimachinery/pkg/watch"
 	gentype "k8s.io/client-go/gentype"
 	wardlev1beta1 "k8s.io/sample-apiserver/pkg/apis/wardle/v1beta1"
-	applyconfigurationwardlev1beta1 "k8s.io/sample-apiserver/pkg/generated/applyconfiguration/wardle/v1beta1"
 	scheme "k8s.io/sample-apiserver/pkg/generated/clientset/versioned/scheme"
 )
 
@@ -48,21 +47,18 @@ type FlunderInterface interface {
 	List(ctx context.Context, opts v1.ListOptions) (*wardlev1beta1.FlunderList, error)
 	Watch(ctx context.Context, opts v1.ListOptions) (watch.Interface, error)
 	Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *wardlev1beta1.Flunder, err error)
-	Apply(ctx context.Context, flunder *applyconfigurationwardlev1beta1.FlunderApplyConfiguration, opts v1.ApplyOptions) (result *wardlev1beta1.Flunder, err error)
-	// Add a +genclient:noStatus comment above the type to avoid generating ApplyStatus().
-	ApplyStatus(ctx context.Context, flunder *applyconfigurationwardlev1beta1.FlunderApplyConfiguration, opts v1.ApplyOptions) (result *wardlev1beta1.Flunder, err error)
 	FlunderExpansion
 }
 
 // flunders implements FlunderInterface
 type flunders struct {
-	*gentype.ClientWithListAndApply[*wardlev1beta1.Flunder, *wardlev1beta1.FlunderList, *applyconfigurationwardlev1beta1.FlunderApplyConfiguration]
+	*gentype.ClientWithList[*wardlev1beta1.Flunder, *wardlev1beta1.FlunderList]
 }
 
 // newFlunders returns a Flunders
 func newFlunders(c *WardleV1beta1Client, namespace string) *flunders {
 	return &flunders{
-		gentype.NewClientWithListAndApply[*wardlev1beta1.Flunder, *wardlev1beta1.FlunderList, *applyconfigurationwardlev1beta1.FlunderApplyConfiguration](
+		gentype.NewClientWithList[*wardlev1beta1.Flunder, *wardlev1beta1.FlunderList](
 			"flunders",
 			c.RESTClient(),
 			scheme.ParameterCodec,

@@ -29,69 +29,99 @@ import (
 
 func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenAPIDefinition {
 	return map[string]common.OpenAPIDefinition{
-		"k8s.io/apimachinery/pkg/apis/meta/v1.APIGroup":                  schema_pkg_apis_meta_v1_APIGroup(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.APIGroupList":              schema_pkg_apis_meta_v1_APIGroupList(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.APIResource":               schema_pkg_apis_meta_v1_APIResource(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.APIResourceList":           schema_pkg_apis_meta_v1_APIResourceList(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.APIVersions":               schema_pkg_apis_meta_v1_APIVersions(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.ApplyOptions":              schema_pkg_apis_meta_v1_ApplyOptions(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.Condition":                 schema_pkg_apis_meta_v1_Condition(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.CreateOptions":             schema_pkg_apis_meta_v1_CreateOptions(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.DeleteOptions":             schema_pkg_apis_meta_v1_DeleteOptions(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.Duration":                  schema_pkg_apis_meta_v1_Duration(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.FieldSelectorRequirement":  schema_pkg_apis_meta_v1_FieldSelectorRequirement(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.FieldsV1":                  schema_pkg_apis_meta_v1_FieldsV1(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.GetOptions":                schema_pkg_apis_meta_v1_GetOptions(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupKind":                 schema_pkg_apis_meta_v1_GroupKind(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupResource":             schema_pkg_apis_meta_v1_GroupResource(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupVersion":              schema_pkg_apis_meta_v1_GroupVersion(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupVersionForDiscovery":  schema_pkg_apis_meta_v1_GroupVersionForDiscovery(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupVersionKind":          schema_pkg_apis_meta_v1_GroupVersionKind(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupVersionResource":      schema_pkg_apis_meta_v1_GroupVersionResource(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.InternalEvent":             schema_pkg_apis_meta_v1_InternalEvent(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.LabelSelector":             schema_pkg_apis_meta_v1_LabelSelector(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.LabelSelectorRequirement":  schema_pkg_apis_meta_v1_LabelSelectorRequirement(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.List":                      schema_pkg_apis_meta_v1_List(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.ListMeta":                  schema_pkg_apis_meta_v1_ListMeta(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.ListOptions":               schema_pkg_apis_meta_v1_ListOptions(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.ManagedFieldsEntry":        schema_pkg_apis_meta_v1_ManagedFieldsEntry(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.MicroTime":                 schema_pkg_apis_meta_v1_MicroTime(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta":                schema_pkg_apis_meta_v1_ObjectMeta(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.OwnerReference":            schema_pkg_apis_meta_v1_OwnerReference(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.PartialObjectMetadata":     schema_pkg_apis_meta_v1_PartialObjectMetadata(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.PartialObjectMetadataList": schema_pkg_apis_meta_v1_PartialObjectMetadataList(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.Patch":                     schema_pkg_apis_meta_v1_Patch(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.PatchOptions":              schema_pkg_apis_meta_v1_PatchOptions(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.Preconditions":             schema_pkg_apis_meta_v1_Preconditions(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.RootPaths":                 schema_pkg_apis_meta_v1_RootPaths(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.ServerAddressByClientCIDR": schema_pkg_apis_meta_v1_ServerAddressByClientCIDR(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.Status":                    schema_pkg_apis_meta_v1_Status(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.StatusCause":               schema_pkg_apis_meta_v1_StatusCause(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.StatusDetails":             schema_pkg_apis_meta_v1_StatusDetails(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.Table":                     schema_pkg_apis_meta_v1_Table(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.TableColumnDefinition":     schema_pkg_apis_meta_v1_TableColumnDefinition(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.TableOptions":              schema_pkg_apis_meta_v1_TableOptions(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.TableRow":                  schema_pkg_apis_meta_v1_TableRow(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.TableRowCondition":         schema_pkg_apis_meta_v1_TableRowCondition(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.Time":                      schema_pkg_apis_meta_v1_Time(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.Timestamp":                 schema_pkg_apis_meta_v1_Timestamp(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.TypeMeta":                  schema_pkg_apis_meta_v1_TypeMeta(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.UpdateOptions":             schema_pkg_apis_meta_v1_UpdateOptions(ref),
-		"k8s.io/apimachinery/pkg/apis/meta/v1.WatchEvent":                schema_pkg_apis_meta_v1_WatchEvent(ref),
-		"k8s.io/apimachinery/pkg/runtime.RawExtension":                   schema_k8sio_apimachinery_pkg_runtime_RawExtension(ref),
-		"k8s.io/apimachinery/pkg/runtime.TypeMeta":                       schema_k8sio_apimachinery_pkg_runtime_TypeMeta(ref),
-		"k8s.io/apimachinery/pkg/runtime.Unknown":                        schema_k8sio_apimachinery_pkg_runtime_Unknown(ref),
-		"k8s.io/apimachinery/pkg/version.Info":                           schema_k8sio_apimachinery_pkg_version_Info(ref),
-		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.Fischer":       schema_pkg_apis_wardle_v1alpha1_Fischer(ref),
-		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.FischerList":   schema_pkg_apis_wardle_v1alpha1_FischerList(ref),
-		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.Flunder":       schema_pkg_apis_wardle_v1alpha1_Flunder(ref),
-		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.FlunderList":   schema_pkg_apis_wardle_v1alpha1_FlunderList(ref),
-		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.FlunderSpec":   schema_pkg_apis_wardle_v1alpha1_FlunderSpec(ref),
-		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.FlunderStatus": schema_pkg_apis_wardle_v1alpha1_FlunderStatus(ref),
-		"k8s.io/sample-apiserver/pkg/apis/wardle/v1beta1.Flunder":        schema_pkg_apis_wardle_v1beta1_Flunder(ref),
-		"k8s.io/sample-apiserver/pkg/apis/wardle/v1beta1.FlunderList":    schema_pkg_apis_wardle_v1beta1_FlunderList(ref),
-		"k8s.io/sample-apiserver/pkg/apis/wardle/v1beta1.FlunderSpec":    schema_pkg_apis_wardle_v1beta1_FlunderSpec(ref),
-		"k8s.io/sample-apiserver/pkg/apis/wardle/v1beta1.FlunderStatus":  schema_pkg_apis_wardle_v1beta1_FlunderStatus(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.APIGroup":                                            schema_pkg_apis_meta_v1_APIGroup(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.APIGroupList":                                        schema_pkg_apis_meta_v1_APIGroupList(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.APIResource":                                         schema_pkg_apis_meta_v1_APIResource(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.APIResourceList":                                     schema_pkg_apis_meta_v1_APIResourceList(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.APIVersions":                                         schema_pkg_apis_meta_v1_APIVersions(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.ApplyOptions":                                        schema_pkg_apis_meta_v1_ApplyOptions(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.Condition":                                           schema_pkg_apis_meta_v1_Condition(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.CreateOptions":                                       schema_pkg_apis_meta_v1_CreateOptions(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.DeleteOptions":                                       schema_pkg_apis_meta_v1_DeleteOptions(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.Duration":                                            schema_pkg_apis_meta_v1_Duration(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.FieldSelectorRequirement":                            schema_pkg_apis_meta_v1_FieldSelectorRequirement(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.FieldsV1":                                            schema_pkg_apis_meta_v1_FieldsV1(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.GetOptions":                                          schema_pkg_apis_meta_v1_GetOptions(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupKind":                                           schema_pkg_apis_meta_v1_GroupKind(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupResource":                                       schema_pkg_apis_meta_v1_GroupResource(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupVersion":                                        schema_pkg_apis_meta_v1_GroupVersion(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupVersionForDiscovery":                            schema_pkg_apis_meta_v1_GroupVersionForDiscovery(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupVersionKind":                                    schema_pkg_apis_meta_v1_GroupVersionKind(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.GroupVersionResource":                                schema_pkg_apis_meta_v1_GroupVersionResource(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.InternalEvent":                                       schema_pkg_apis_meta_v1_InternalEvent(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.LabelSelector":                                       schema_pkg_apis_meta_v1_LabelSelector(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.LabelSelectorRequirement":                            schema_pkg_apis_meta_v1_LabelSelectorRequirement(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.List":                                                schema_pkg_apis_meta_v1_List(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.ListMeta":                                            schema_pkg_apis_meta_v1_ListMeta(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.ListOptions":                                         schema_pkg_apis_meta_v1_ListOptions(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.ManagedFieldsEntry":                                  schema_pkg_apis_meta_v1_ManagedFieldsEntry(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.MicroTime":                                           schema_pkg_apis_meta_v1_MicroTime(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta":                                          schema_pkg_apis_meta_v1_ObjectMeta(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.OwnerReference":                                      schema_pkg_apis_meta_v1_OwnerReference(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.PartialObjectMetadata":                               schema_pkg_apis_meta_v1_PartialObjectMetadata(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.PartialObjectMetadataList":                           schema_pkg_apis_meta_v1_PartialObjectMetadataList(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.Patch":                                               schema_pkg_apis_meta_v1_Patch(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.PatchOptions":                                        schema_pkg_apis_meta_v1_PatchOptions(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.Preconditions":                                       schema_pkg_apis_meta_v1_Preconditions(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.RootPaths":                                           schema_pkg_apis_meta_v1_RootPaths(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.ServerAddressByClientCIDR":                           schema_pkg_apis_meta_v1_ServerAddressByClientCIDR(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.Status":                                              schema_pkg_apis_meta_v1_Status(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.StatusCause":                                         schema_pkg_apis_meta_v1_StatusCause(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.StatusDetails":                                       schema_pkg_apis_meta_v1_StatusDetails(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.Table":                                               schema_pkg_apis_meta_v1_Table(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.TableColumnDefinition":                               schema_pkg_apis_meta_v1_TableColumnDefinition(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.TableOptions":                                        schema_pkg_apis_meta_v1_TableOptions(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.TableRow":                                            schema_pkg_apis_meta_v1_TableRow(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.TableRowCondition":                                   schema_pkg_apis_meta_v1_TableRowCondition(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.Time":                                                schema_pkg_apis_meta_v1_Time(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.Timestamp":                                           schema_pkg_apis_meta_v1_Timestamp(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.TypeMeta":                                            schema_pkg_apis_meta_v1_TypeMeta(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.UpdateOptions":                                       schema_pkg_apis_meta_v1_UpdateOptions(ref),
+		"k8s.io/apimachinery/pkg/apis/meta/v1.WatchEvent":                                          schema_pkg_apis_meta_v1_WatchEvent(ref),
+		"k8s.io/apimachinery/pkg/runtime.RawExtension":                                             schema_k8sio_apimachinery_pkg_runtime_RawExtension(ref),
+		"k8s.io/apimachinery/pkg/runtime.TypeMeta":                                                 schema_k8sio_apimachinery_pkg_runtime_TypeMeta(ref),
+		"k8s.io/apimachinery/pkg/runtime.Unknown":                                                  schema_k8sio_apimachinery_pkg_runtime_Unknown(ref),
+		"k8s.io/apimachinery/pkg/version.Info":                                                     schema_k8sio_apimachinery_pkg_version_Info(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.AbortIncompleteMultipartUpload":    schema_pkg_apis_providerceph_v1alpha1_AbortIncompleteMultipartUpload(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.AccessControlPolicy":               schema_pkg_apis_providerceph_v1alpha1_AccessControlPolicy(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BackendInfo":                       schema_pkg_apis_providerceph_v1alpha1_BackendInfo(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Bucket":                            schema_pkg_apis_providerceph_v1alpha1_Bucket(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketLifecycleConfiguration":      schema_pkg_apis_providerceph_v1alpha1_BucketLifecycleConfiguration(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketList":                        schema_pkg_apis_providerceph_v1alpha1_BucketList(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketObservation":                 schema_pkg_apis_providerceph_v1alpha1_BucketObservation(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketParameters":                  schema_pkg_apis_providerceph_v1alpha1_BucketParameters(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketSpec":                        schema_pkg_apis_providerceph_v1alpha1_BucketSpec(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketStatus":                      schema_pkg_apis_providerceph_v1alpha1_BucketStatus(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.CORSConfiguration":                 schema_pkg_apis_providerceph_v1alpha1_CORSConfiguration(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.CORSRule":                          schema_pkg_apis_providerceph_v1alpha1_CORSRule(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.DefaultRetention":                  schema_pkg_apis_providerceph_v1alpha1_DefaultRetention(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Grant":                             schema_pkg_apis_providerceph_v1alpha1_Grant(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Grantee":                           schema_pkg_apis_providerceph_v1alpha1_Grantee(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleExpiration":               schema_pkg_apis_providerceph_v1alpha1_LifecycleExpiration(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleRule":                     schema_pkg_apis_providerceph_v1alpha1_LifecycleRule(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleRuleAndOperator":          schema_pkg_apis_providerceph_v1alpha1_LifecycleRuleAndOperator(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleRuleFilter":               schema_pkg_apis_providerceph_v1alpha1_LifecycleRuleFilter(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.NoncurrentVersionExpiration":       schema_pkg_apis_providerceph_v1alpha1_NoncurrentVersionExpiration(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.NoncurrentVersionTransition":       schema_pkg_apis_providerceph_v1alpha1_NoncurrentVersionTransition(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ObjectLockConfiguration":           schema_pkg_apis_providerceph_v1alpha1_ObjectLockConfiguration(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ObjectLockRule":                    schema_pkg_apis_providerceph_v1alpha1_ObjectLockRule(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Owner":                             schema_pkg_apis_providerceph_v1alpha1_Owner(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ServerSideEncryptionByDefault":     schema_pkg_apis_providerceph_v1alpha1_ServerSideEncryptionByDefault(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ServerSideEncryptionConfiguration": schema_pkg_apis_providerceph_v1alpha1_ServerSideEncryptionConfiguration(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ServerSideEncryptionRule":          schema_pkg_apis_providerceph_v1alpha1_ServerSideEncryptionRule(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Tag":                               schema_pkg_apis_providerceph_v1alpha1_Tag(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Transition":                        schema_pkg_apis_providerceph_v1alpha1_Transition(ref),
+		"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.VersioningConfiguration":           schema_pkg_apis_providerceph_v1alpha1_VersioningConfiguration(ref),
+		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.Fischer":                                 schema_pkg_apis_wardle_v1alpha1_Fischer(ref),
+		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.FischerList":                             schema_pkg_apis_wardle_v1alpha1_FischerList(ref),
+		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.Flunder":                                 schema_pkg_apis_wardle_v1alpha1_Flunder(ref),
+		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.FlunderList":                             schema_pkg_apis_wardle_v1alpha1_FlunderList(ref),
+		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.FlunderSpec":                             schema_pkg_apis_wardle_v1alpha1_FlunderSpec(ref),
+		"k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1.FlunderStatus":                           schema_pkg_apis_wardle_v1alpha1_FlunderStatus(ref),
+		"k8s.io/sample-apiserver/pkg/apis/wardle/v1beta1.Flunder":                                  schema_pkg_apis_wardle_v1beta1_Flunder(ref),
+		"k8s.io/sample-apiserver/pkg/apis/wardle/v1beta1.FlunderList":                              schema_pkg_apis_wardle_v1beta1_FlunderList(ref),
+		"k8s.io/sample-apiserver/pkg/apis/wardle/v1beta1.FlunderSpec":                              schema_pkg_apis_wardle_v1beta1_FlunderSpec(ref),
+		"k8s.io/sample-apiserver/pkg/apis/wardle/v1beta1.FlunderStatus":                            schema_pkg_apis_wardle_v1beta1_FlunderStatus(ref),
 	}
 }
 
@@ -2716,6 +2746,1333 @@ func schema_k8sio_apimachinery_pkg_version_Info(ref common.ReferenceCallback) co
 					},
 				},
 				Required: []string{"major", "minor", "gitVersion", "gitCommit", "gitTreeState", "buildDate", "goVersion", "compiler", "platform"},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_AbortIncompleteMultipartUpload(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "AbortIncompleteMultipartUpload specifies the days since the initiation of an incomplete multipart upload that will be waited before all parts of the upload are permanently removed. For more information, see Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy (https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) in the Amazon Simple Storage Service Developer Guide.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"daysAfterInitiation": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies the number of days after which an incomplete multipart upload is aborted.",
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+				},
+				Required: []string{"daysAfterInitiation"},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_AccessControlPolicy(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "Contains the elements that set the ACL permissions for an object per grantee.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"grants": {
+						SchemaProps: spec.SchemaProps{
+							Description: "A list of grants.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Grant"),
+									},
+								},
+							},
+						},
+					},
+					"owner": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Container for the bucket owner's display name and ID.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Owner"),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Grant", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Owner"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_BackendInfo(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "BackendInfo contains relevant information about an S3 backend for a single bucket.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"bucketCondition": {
+						SchemaProps: spec.SchemaProps{
+							Description: "BucketCondition is the condition of the Bucket on the S3 backend.",
+							Default:     map[string]interface{}{},
+							Ref:         ref("github.com/crossplane/crossplane-runtime/v2/apis/common.Condition"),
+						},
+					},
+					"lifecycleConfigurationCondition": {
+						SchemaProps: spec.SchemaProps{
+							Description: "LifecycleConfigurationCondition is the condition of the bucket lifecycle configuration on the S3 backend. Use a pointer to allow nil value when there is no lifecycle configuration.",
+							Ref:         ref("github.com/crossplane/crossplane-runtime/v2/apis/common.Condition"),
+						},
+					},
+					"versioningConfigurationCondition": {
+						SchemaProps: spec.SchemaProps{
+							Description: "VersioningConfigurationCondition is the condition of the versioning configuration on the S3 backend. Use a pointer to allow nil value when there is no versioning configuration.",
+							Ref:         ref("github.com/crossplane/crossplane-runtime/v2/apis/common.Condition"),
+						},
+					},
+					"objectLockConfigurationCondition": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ObjectLockConfigurationCondition is the condition of the object lock configuration on the S3 backend. Use a pointer to allow nil value when there is no object lock configuration.",
+							Ref:         ref("github.com/crossplane/crossplane-runtime/v2/apis/common.Condition"),
+						},
+					},
+					"serverSideEncryptionConfigurationCondition": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ServerSideEncryptionConfigurationCondition is the condition of the server side encryption configuration on the S3 backend. Use a pointer to allow nil value when there is no serverside encryption configuration.",
+							Ref:         ref("github.com/crossplane/crossplane-runtime/v2/apis/common.Condition"),
+						},
+					},
+					"corsConfigurationCondition": {
+						SchemaProps: spec.SchemaProps{
+							Description: "CORSConfigurationCondition is the condition of the CORS configuration on the S3 backend. Use a pointer to allow nil value when there is no CORS configuration.",
+							Ref:         ref("github.com/crossplane/crossplane-runtime/v2/apis/common.Condition"),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"github.com/crossplane/crossplane-runtime/v2/apis/common.Condition"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_Bucket(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "A Bucket is an example API type.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"spec": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketSpec"),
+						},
+					},
+					"status": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketStatus"),
+						},
+					},
+					"kind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"apiVersion": {
+						SchemaProps: spec.SchemaProps{
+							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metadata": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref("k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"),
+						},
+					},
+				},
+				Required: []string{"spec"},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketSpec", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketStatus"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_BucketLifecycleConfiguration(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "BucketLifecycleConfiguration specifies the lifecycle configuration for objects in a bucket. For more information, see Object Lifecycle Management (https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the Amazon Simple Storage Service Developer Guide.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"rules": {
+						SchemaProps: spec.SchemaProps{
+							Description: "A lifecycle rule for individual objects in a bucket.\n\nRules is a required field",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleRule"),
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"rules"},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleRule"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_BucketList(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "BucketList contains a list of Bucket",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"kind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"apiVersion": {
+						SchemaProps: spec.SchemaProps{
+							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metadata": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref("k8s.io/apimachinery/pkg/apis/meta/v1.ListMeta"),
+						},
+					},
+					"items": {
+						SchemaProps: spec.SchemaProps{
+							Type: []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Bucket"),
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"items"},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/apimachinery/pkg/apis/meta/v1.ListMeta", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Bucket"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_BucketObservation(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "BucketObservation are the observable fields of a Bucket.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"backends": {
+						SchemaProps: spec.SchemaProps{
+							Type: []string{"object"},
+							AdditionalProperties: &spec.SchemaOrBool{
+								Allows: true,
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Ref: ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BackendInfo"),
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BackendInfo"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_BucketParameters(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "BucketParameters are the configurable fields of a Bucket.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"acl": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The canned ACL to apply to the bucket.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"accessControlPolicy": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Contains the elements that set the ACL permissions for an object per grantee.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.AccessControlPolicy"),
+						},
+					},
+					"grantFullControl": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"grantRead": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Allows grantee to list the objects in the bucket.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"grantReadACP": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Allows grantee to read the bucket ACL.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"grantWrite": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Allows grantee to create new objects in the bucket.\n\nFor the bucket and object owners of existing objects, also allows deletions and overwrites of those objects.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"grantWriteACP": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Allows grantee to write the ACL for the applicable bucket.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"objectLockEnabledForBucket": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies whether you want S3 Object Lock to be enabled for the new bucket.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"objectOwnership": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The container element for object ownership for a bucket's ownership controls.\n\nBucketOwnerPreferred - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the bucket-owner-full-control canned ACL.\n\nObjectWriter - The uploading account will own the object if the object is uploaded with the bucket-owner-full-control canned ACL.\n\nBucketOwnerEnforced - Access control lists (ACLs) are disabled and no longer affect permissions. The bucket owner automatically owns and has full control over every object in the bucket. The bucket only accepts PUT requests that don't specify an ACL or bucket owner full control ACLs, such as the bucket-owner-full-control canned ACL or an equivalent form of this ACL expressed in the XML format.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"locationConstraint": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies the Region where the bucket will be created.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"lifecycleConfiguration": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle configuration. For information about lifecycle configuration, see Managing Access Permissions to Your Amazon S3 Resources (https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html).",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketLifecycleConfiguration"),
+						},
+					},
+					"versioningConfiguration": {
+						SchemaProps: spec.SchemaProps{
+							Description: "VersioningConfiguration describes the desired versioning state of an S3 bucket. See the API reference guide for PutBucketVersioning for usage and error information. See also, https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.VersioningConfiguration"),
+						},
+					},
+					"objectLockConfiguration": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ObjectLockConfiguration describes the desired object lock state of an S3 bucket.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ObjectLockConfiguration"),
+						},
+					},
+					"serverSideEncryptionConfiguration": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ServerSideEncryptionConfiguration specifies default encryption for a bucket using server-side encryption.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ServerSideEncryptionConfiguration"),
+						},
+					},
+					"corsConfiguration": {
+						SchemaProps: spec.SchemaProps{
+							Description: "CORSConfiguration describes the cross-origin access configuration for the bucket.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.CORSConfiguration"),
+						},
+					},
+					"assumeRoleTags": {
+						SchemaProps: spec.SchemaProps{
+							Description: "AssumeRoleTags may be used to add custom values to an AssumeRole request.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Tag"),
+									},
+								},
+							},
+						},
+					},
+					"policy": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Policy is a JSON string of BucketPolicy. If it is set, Provider-Ceph calls PutBucketPolicy API after creating the bucket. Before adding it, you should validate the JSON string.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.AccessControlPolicy", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketLifecycleConfiguration", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.CORSConfiguration", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ObjectLockConfiguration", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ServerSideEncryptionConfiguration", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Tag", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.VersioningConfiguration"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_BucketSpec(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "A BucketSpec defines the desired state of a Bucket.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"providers": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Providers is a list of ProviderConfig names representing S3 backends on which the bucket is to be created.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: "",
+										Type:    []string{"string"},
+										Format:  "",
+									},
+								},
+							},
+						},
+					},
+					"forProvider": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketParameters"),
+						},
+					},
+					"disabled": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Disabled allows the user to create a Bucket CR without creating buckets on any S3 backends. If an existing bucket CR is updated with Disabled=true, then provider-ceph attempts to remove any existing buckets from the existing S3 backends and the Bucket CR's status is updated accordingly. This flag overrides 'Providers'.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"lifecycleConfigurationDisabled": {
+						SchemaProps: spec.SchemaProps{
+							Description: "LifecycleConfigurationDisabled causes provider-ceph to attempt deletion and/or avoid create/updates of the lifecycle config for the bucket on all of the bucket's backends. The Bucket CR's status is updated accordingly.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"serverSideEncryptionConfigurationDisabled": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ServerSideEncryptionConfigurationDisabled causes provider-ceph to attempt deletion and/or avoid create/updates of the SSE config for the bucket on all of the bucket's backends. The Bucket CR's status is updated accordingly.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"corsConfigurationDisabled": {
+						SchemaProps: spec.SchemaProps{
+							Description: "CORSConfigurationDisabled causes provider-ceph to attempt deletion and/or avoid create/updates of the CORS config for the bucket on all of the bucket's backends. The Bucket CR's status is updated accordingly.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"autoPause": {
+						SchemaProps: spec.SchemaProps{
+							Description: "AutoPause allows the user to disable further reconciliation of the bucket after successfully created or updated. If `crossplane.io/paused` label is `true`, disables reconciliation of object. If `crossplane.io/paused` label is missing or empty, triggers auto pause function. Any other value disables auto pause function on bucket.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"writeConnectionSecretToRef": {
+						SchemaProps: spec.SchemaProps{
+							Description: "WriteConnectionSecretToReference specifies the namespace and name of a Secret to which any connection details for this managed resource should be written. Connection details frequently include the endpoint, username, and password required to connect to the managed resource.",
+							Ref:         ref("github.com/crossplane/crossplane-runtime/v2/apis/common.SecretReference"),
+						},
+					},
+					"providerConfigRef": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ProviderConfigReference specifies how the provider that will be used to create, observe, update, and delete this managed resource should be configured.",
+							Ref:         ref("github.com/crossplane/crossplane-runtime/v2/apis/common.Reference"),
+						},
+					},
+					"managementPolicies": {
+						SchemaProps: spec.SchemaProps{
+							Description: "THIS IS A BETA FIELD. It is on by default but can be opted out through a Crossplane feature flag. ManagementPolicies specify the array of actions Crossplane is allowed to take on the managed and external resources. This field is planned to replace the DeletionPolicy field in a future release. Currently, both could be set independently and non-default values would be honored if the feature flag is enabled. If both are custom, the DeletionPolicy field will be ignored. See the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223 and this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: "",
+										Type:    []string{"string"},
+										Format:  "",
+									},
+								},
+							},
+						},
+					},
+					"deletionPolicy": {
+						SchemaProps: spec.SchemaProps{
+							Description: "DeletionPolicy specifies what will happen to the underlying external when this managed resource is deleted - either \"Delete\" or \"Orphan\" the external resource. This field is planned to be deprecated in favor of the ManagementPolicies field in a future release. Currently, both could be set independently and non-default values would be honored if the feature flag is enabled. See the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"forProvider"},
+			},
+		},
+		Dependencies: []string{
+			"github.com/crossplane/crossplane-runtime/v2/apis/common.Reference", "github.com/crossplane/crossplane-runtime/v2/apis/common.SecretReference", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketParameters"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_BucketStatus(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "A BucketStatus represents the observed state of a Bucket.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"atProvider": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketObservation"),
+						},
+					},
+					"conditions": {
+						VendorExtensible: spec.VendorExtensible{
+							Extensions: spec.Extensions{
+								"x-kubernetes-list-map-keys": []interface{}{
+									"type",
+								},
+								"x-kubernetes-list-type": "map",
+							},
+						},
+						SchemaProps: spec.SchemaProps{
+							Description: "Conditions of the resource.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("github.com/crossplane/crossplane-runtime/v2/apis/common.Condition"),
+									},
+								},
+							},
+						},
+					},
+					"observedGeneration": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ObservedGeneration is the latest metadata.generation which resulted in either a ready state, or stalled due to error it can not recover from without human intervention.",
+							Type:        []string{"integer"},
+							Format:      "int64",
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"github.com/crossplane/crossplane-runtime/v2/apis/common.Condition", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.BucketObservation"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_CORSConfiguration(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "CORSConfiguration describes the cross-origin access configuration for a bucket.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"rules": {
+						SchemaProps: spec.SchemaProps{
+							Description: "A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.CORSRule"),
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"rules"},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.CORSRule"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_CORSRule(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "CORSRule specifies a cross-origin access rule for a bucket.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"allowedHeaders": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Headers that are specified in the Access-Control-Request-Headers header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: "",
+										Type:    []string{"string"},
+										Format:  "",
+									},
+								},
+							},
+						},
+					},
+					"allowedMethods": {
+						SchemaProps: spec.SchemaProps{
+							Description: "An HTTP method that you allow the origin to execute. Valid values are GET, PUT, HEAD, POST, and DELETE.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: "",
+										Type:    []string{"string"},
+										Format:  "",
+									},
+								},
+							},
+						},
+					},
+					"allowedOrigins": {
+						SchemaProps: spec.SchemaProps{
+							Description: "One or more origins you want customers to be able to access the bucket from.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: "",
+										Type:    []string{"string"},
+										Format:  "",
+									},
+								},
+							},
+						},
+					},
+					"exposeHeaders": {
+						SchemaProps: spec.SchemaProps{
+							Description: "One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: "",
+										Type:    []string{"string"},
+										Format:  "",
+									},
+								},
+							},
+						},
+					},
+					"id": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Unique identifier for the rule. The value cannot be longer than 255 characters.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"maxAgeSeconds": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The time in seconds that your browser is to cache the preflight response for the specified resource.",
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+				},
+				Required: []string{"allowedMethods", "allowedOrigins"},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_DefaultRetention(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"days": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The number of days that you want to specify for the default retention period. Must be used with Mode.",
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+					"mode": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Must be used with either Days or Years.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"years": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The number of years that you want to specify for the default retention period. Must be used with Mode.",
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_Grant(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "Container for grant information.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"grantee": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The person being granted permissions.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Grantee"),
+						},
+					},
+					"permission": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies the permission given to the grantee.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Grantee"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_Grantee(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "Container for the person being granted permissions.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"type": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Type of grantee. Type is a required field.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"displayName": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Screen name of the grantee.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"emailAddress": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Email address of the grantee.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"id": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The canonical user ID of the grantee.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"uri": {
+						SchemaProps: spec.SchemaProps{
+							Description: "URI of the grantee group.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"type"},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_LifecycleExpiration(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "LifecycleExpiration contains for the expiration for the lifecycle of the object.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"date": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Indicates at what date the object is to be moved or deleted.",
+							Ref:         ref("k8s.io/apimachinery/pkg/apis/meta/v1.Time"),
+						},
+					},
+					"days": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.",
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+					"expiredObjectDeleteMarker": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Indicates whether a delete marker will be removed with no noncurrent versions. If set to true, the delete marker will be expired; if set to false the policy takes no action. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/apimachinery/pkg/apis/meta/v1.Time"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_LifecycleRule(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "LifecycleRule for individual objects in a bucket.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"abortIncompleteMultipartUpload": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies the days since the initiation of an incomplete multipart upload that will be waited before permanently removing all parts of the upload. For more information, see Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy (https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) in the Amazon Simple Storage Service Developer Guide.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.AbortIncompleteMultipartUpload"),
+						},
+					},
+					"expiration": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleExpiration"),
+						},
+					},
+					"filter": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleRuleFilter"),
+						},
+					},
+					"id": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Unique identifier for the rule. The value cannot be longer than 255 characters.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"noncurrentVersionExpiration": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies when noncurrent object versions expire. Upon expiration, the noncurrent object versions are permanently deleted. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that noncurrent object versions are deleted at a specific period in the object's lifetime.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.NoncurrentVersionExpiration"),
+						},
+					},
+					"noncurrentVersionTransitions": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that noncurrent object versions are transitioned  to a specific storage class at a set period in the object's lifetime.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.NoncurrentVersionTransition"),
+									},
+								},
+							},
+						},
+					},
+					"status": {
+						SchemaProps: spec.SchemaProps{
+							Description: "If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.\n\nStatus is a required field, valid values are Enabled or Disabled",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"transitions": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies when an Amazon S3 object transitions to a specified storage class.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Transition"),
+									},
+								},
+							},
+						},
+					},
+					"prefix": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Deprecated: Use Filter instead. This field is still supported as it is a required field in PutBucketLifecycle v1.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"status"},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.AbortIncompleteMultipartUpload", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleExpiration", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleRuleFilter", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.NoncurrentVersionExpiration", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.NoncurrentVersionTransition", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Transition"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_LifecycleRuleAndOperator(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "LifecycleRuleAndOperator is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"prefix": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Prefix identifying one or more objects to which the rule applies.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"tags": {
+						SchemaProps: spec.SchemaProps{
+							Description: "All of these tags must exist in the object's tag set in order for the rule to apply.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Tag"),
+									},
+								},
+							},
+						},
+					},
+					"objectSizeGreaterThan": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Minimum object size to which the rule applies.",
+							Type:        []string{"integer"},
+							Format:      "int64",
+						},
+					},
+					"objectSizeLessThan": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Maximum object size to which the rule applies.",
+							Type:        []string{"integer"},
+							Format:      "int64",
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Tag"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_LifecycleRuleFilter(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "LifecycleRuleFilter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"and": {
+						SchemaProps: spec.SchemaProps{
+							Description: "This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleRuleAndOperator"),
+						},
+					},
+					"prefix": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Prefix identifying one or more objects to which the rule applies.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"tag": {
+						SchemaProps: spec.SchemaProps{
+							Description: "This tag must exist in the object's tag set in order for the rule to apply.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Tag"),
+						},
+					},
+					"objectSizeGreaterThan": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Minimum object size to which the rule applies.",
+							Type:        []string{"integer"},
+							Format:      "int64",
+						},
+					},
+					"objectSizeLessThan": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Maximum object size to which the rule applies.",
+							Type:        []string{"integer"},
+							Format:      "int64",
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.LifecycleRuleAndOperator", "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.Tag"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_NoncurrentVersionExpiration(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "NoncurrentVersionExpiration specifies when noncurrent object versions expire. Upon expiration, the noncurrent object versions are permanently deleted. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that the noncurrent object versions are deleted at a specific period in the object's lifetime.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"noncurrentDays": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies the number of days an object is noncurrent before the associated action can be performed.",
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+					"newerNoncurrentVersions": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies how many noncurrent versions will be retained.",
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_NoncurrentVersionTransition(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "NoncurrentVersionTransition contains the transition rule that describes when noncurrent objects transition storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that the storage class of the non-current version is transitioned at a specific period in the object's lifetime.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"noncurrentDays": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies the number of days an object is noncurrent before the associated action can be performed.",
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+					"storageClass": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The class of storage used to store the object.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"newerNoncurrentVersions": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies how many noncurrent versions will be retained.",
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+				},
+				Required: []string{"storageClass"},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_ObjectLockConfiguration(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "ObjectLockConfiguration describes the object lock state of an S3 bucket.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"objectLockEnabled": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Indicates whether this bucket has an Object Lock configuration enabled. Enable ObjectLockEnabled when you apply ObjectLockConfiguration to a bucket.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"objectLockRule": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies the Object Lock rule for the specified object. Enable this rule when you apply ObjectLockConfiguration to a bucket. Bucket settings require both a mode and a period. The period can be either Days or Years but you must select one. You cannot specify Days and Years at the same time.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ObjectLockRule"),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ObjectLockRule"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_ObjectLockRule(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"defaultRetention": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket. Bucket settings require both a mode and a period. The period can be either Days or Years but you must select one. You cannot specify Days and Years at the same time.",
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.DefaultRetention"),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.DefaultRetention"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_Owner(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "Container for the owner's display name and ID.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"displayName": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Container for the display name of the owner.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"id": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Container for the ID of the owner.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_ServerSideEncryptionByDefault(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "ServerSideEncryptionByDefault describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"kmsMasterKeyId": {
+						SchemaProps: spec.SchemaProps{
+							Description: "AWS Key Management Service (KMS) customer master key ID to use for the default encryption. This parameter is allowed if and only if SSEAlgorithm is set to aws:kms.\n\nYou can specify the key ID or the Amazon Resource Name (ARN) of the CMK. However, if you are using encryption with cross-account operations, you must use a fully qualified CMK ARN. For more information, see Using encryption for cross-account operations (https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).\n\nFor example:\n\n   * Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab\n\n   * Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\n\nAmazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more information, see Using Symmetric and Asymmetric Keys (https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the AWS Key Management Service Developer Guide.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"sseAlgorithm": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Server-side encryption algorithm to use for the default encryption. Options are AES256 or aws:kms",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"sseAlgorithm"},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_ServerSideEncryptionConfiguration(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "ServerSideEncryptionConfiguration specifies the default server-side-encryption configuration.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"rules": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Container for information about a particular server-side encryption configuration rule.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ServerSideEncryptionRule"),
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"rules"},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ServerSideEncryptionRule"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_ServerSideEncryptionRule(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "ServerSideEncryptionRule Specifies the default server-side encryption configuration.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"applyServerSideEncryptionByDefault": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.",
+							Default:     map[string]interface{}{},
+							Ref:         ref("k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ServerSideEncryptionByDefault"),
+						},
+					},
+					"bucketKeyEnabled": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the BucketKeyEnabled element to true causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"applyServerSideEncryptionByDefault"},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1.ServerSideEncryptionByDefault"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_Tag(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "Tag is a container for a key value name pair.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"key": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Name of the tag. Key is a required field",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"value": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Value of the tag. Value is a required field",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"key", "value"},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_Transition(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "Transition specifies when an object transitions to a specified storage class.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"date": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.",
+							Ref:         ref("k8s.io/apimachinery/pkg/apis/meta/v1.Time"),
+						},
+					},
+					"days": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.",
+							Type:        []string{"integer"},
+							Format:      "int32",
+						},
+					},
+					"storageClass": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The storage class to which you want the object to transition.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"storageClass"},
+			},
+		},
+		Dependencies: []string{
+			"k8s.io/apimachinery/pkg/apis/meta/v1.Time"},
+	}
+}
+
+func schema_pkg_apis_providerceph_v1alpha1_VersioningConfiguration(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "VersioningConfiguration describes the versioning state of an S3 bucket.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"mfaDelete": {
+						SchemaProps: spec.SchemaProps{
+							Description: "MFADelete specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"status": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Status is the desired versioning state of the bucket.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
 			},
 		},
 	}

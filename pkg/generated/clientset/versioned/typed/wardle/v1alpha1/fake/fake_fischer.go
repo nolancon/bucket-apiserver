@@ -21,19 +21,18 @@ package fake
 import (
 	gentype "k8s.io/client-go/gentype"
 	v1alpha1 "k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1"
-	wardlev1alpha1 "k8s.io/sample-apiserver/pkg/generated/applyconfiguration/wardle/v1alpha1"
-	typedwardlev1alpha1 "k8s.io/sample-apiserver/pkg/generated/clientset/versioned/typed/wardle/v1alpha1"
+	wardlev1alpha1 "k8s.io/sample-apiserver/pkg/generated/clientset/versioned/typed/wardle/v1alpha1"
 )
 
 // fakeFischers implements FischerInterface
 type fakeFischers struct {
-	*gentype.FakeClientWithListAndApply[*v1alpha1.Fischer, *v1alpha1.FischerList, *wardlev1alpha1.FischerApplyConfiguration]
+	*gentype.FakeClientWithList[*v1alpha1.Fischer, *v1alpha1.FischerList]
 	Fake *FakeWardleV1alpha1
 }
 
-func newFakeFischers(fake *FakeWardleV1alpha1) typedwardlev1alpha1.FischerInterface {
+func newFakeFischers(fake *FakeWardleV1alpha1) wardlev1alpha1.FischerInterface {
 	return &fakeFischers{
-		gentype.NewFakeClientWithListAndApply[*v1alpha1.Fischer, *v1alpha1.FischerList, *wardlev1alpha1.FischerApplyConfiguration](
+		gentype.NewFakeClientWithList[*v1alpha1.Fischer, *v1alpha1.FischerList](
 			fake.Fake,
 			"",
 			v1alpha1.SchemeGroupVersion.WithResource("fischers"),

@@ -21,19 +21,18 @@ package fake
 import (
 	gentype "k8s.io/client-go/gentype"
 	v1beta1 "k8s.io/sample-apiserver/pkg/apis/wardle/v1beta1"
-	wardlev1beta1 "k8s.io/sample-apiserver/pkg/generated/applyconfiguration/wardle/v1beta1"
-	typedwardlev1beta1 "k8s.io/sample-apiserver/pkg/generated/clientset/versioned/typed/wardle/v1beta1"
+	wardlev1beta1 "k8s.io/sample-apiserver/pkg/generated/clientset/versioned/typed/wardle/v1beta1"
 )
 
 // fakeFlunders implements FlunderInterface
 type fakeFlunders struct {
-	*gentype.FakeClientWithListAndApply[*v1beta1.Flunder, *v1beta1.FlunderList, *wardlev1beta1.FlunderApplyConfiguration]
+	*gentype.FakeClientWithList[*v1beta1.Flunder, *v1beta1.FlunderList]
 	Fake *FakeWardleV1beta1
 }
 
-func newFakeFlunders(fake *FakeWardleV1beta1, namespace string) typedwardlev1beta1.FlunderInterface {
+func newFakeFlunders(fake *FakeWardleV1beta1, namespace string) wardlev1beta1.FlunderInterface {
 	return &fakeFlunders{
-		gentype.NewFakeClientWithListAndApply[*v1beta1.Flunder, *v1beta1.FlunderList, *wardlev1beta1.FlunderApplyConfiguration](
+		gentype.NewFakeClientWithList[*v1beta1.Flunder, *v1beta1.FlunderList](
 			fake.Fake,
 			namespace,
 			v1beta1.SchemeGroupVersion.WithResource("flunders"),
