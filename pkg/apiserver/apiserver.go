@@ -21,11 +21,11 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/apimachinery/pkg/runtime/serializer"
+	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	"k8s.io/apiserver/pkg/registry/rest"
 	genericapiserver "k8s.io/apiserver/pkg/server"
 
 	"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1"
-	"k8s.io/sample-apiserver/pkg/apis/wardle/install"
 	"k8s.io/sample-apiserver/pkg/registry"
 	bucketstorage "k8s.io/sample-apiserver/pkg/registry/providerceph/bucket"
 )
@@ -35,12 +35,16 @@ var (
 	Scheme = runtime.NewScheme()
 	// Codecs provides methods for retrieving codecs and serializers for specific
 	// versions and content types.
-	Codecs              = serializer.NewCodecFactory(Scheme)
+	Codecs              serializer.CodecFactory
 	BucketComponentName = "bucket"
 )
 
 func init() {
-	install.Install(Scheme)
+	v1alpha1.AddKnownTypes(Scheme)
+	utilruntime.Must(v1alpha1.AddToScheme(Scheme))
+
+	// Initialize Codecs after the Scheme is populated
+	Codecs = serializer.NewCodecFactory(Scheme)
 
 	// we need to add the options to empty v1
 	// TODO fix the server code to avoid this

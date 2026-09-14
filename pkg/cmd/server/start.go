@@ -30,6 +30,8 @@ import (
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	"k8s.io/apimachinery/pkg/util/version"
 	"k8s.io/apiserver/pkg/endpoints/openapi"
+	"k8s.io/kube-openapi/pkg/common"
+	spec "k8s.io/kube-openapi/pkg/validation/spec"
 	genericapiserver "k8s.io/apiserver/pkg/server"
 	genericoptions "k8s.io/apiserver/pkg/server/options"
 	"k8s.io/apiserver/pkg/util/compatibility"
@@ -176,6 +178,37 @@ func (o *BucketServerOptions) Complete() error {
 	return nil
 }
 
+// getOpenAPIDefinitionsWithFallback returns OpenAPI definitions with a fallback for external types
+func getOpenAPIDefinitionsWithFallback(ref common.ReferenceCallback) map[string]common.OpenAPIDefinition {
+	defs := sampleopenapi.GetOpenAPIDefinitions(ref)
+	
+	// Define stub definitions for external crossplane types that may be referenced
+	// but don't have full OpenAPI definitions
+	externalTypeStubs := []string{
+		"github.com/crossplane/crossplane-runtime/v2/apis/common.Reference",
+		"github.com/crossplane/crossplane-runtime/v2/apis/common.SecretReference",
+		"github.com/crossplane/crossplane-runtime/v2/apis/common.Condition",
+	}
+	
+	for _, typeName := range externalTypeStubs {
+		if _, exists := defs[typeName]; !exists {
+			defs[typeName] = common.OpenAPIDefinition{
+				Schema: spec.Schema{
+					SchemaProps: spec.SchemaProps{
+						Type: []string{"object"},
+						Properties: map[string]spec.Schema{
+							"name":      {SchemaProps: spec.SchemaProps{Type: []string{"string"}}},
+							"namespace": {SchemaProps: spec.SchemaProps{Type: []string{"string"}}},
+						},
+					},
+				},
+			}
+		}
+	}
+	
+	return defs
+}
+
 // Config returns config for the api server given BucketServerOptions
 func (o *BucketServerOptions) Config() (*apiserver.Config, error) {
 	// TODO have a "real" external address
@@ -185,11 +218,11 @@ func (o *BucketServerOptions) Config() (*apiserver.Config, error) {
 
 	serverConfig := genericapiserver.NewRecommendedConfig(apiserver.Codecs)
 
-	serverConfig.OpenAPIConfig = genericapiserver.DefaultOpenAPIConfig(sampleopenapi.GetOpenAPIDefinitions, openapi.NewDefinitionNamer(apiserver.Scheme))
+	serverConfig.OpenAPIConfig = genericapiserver.DefaultOpenAPIConfig(getOpenAPIDefinitionsWithFallback, openapi.NewDefinitionNamer(apiserver.Scheme))
 	serverConfig.OpenAPIConfig.Info.Title = "Bucket"
 	serverConfig.OpenAPIConfig.Info.Version = "0.1"
 
-	serverConfig.OpenAPIV3Config = genericapiserver.DefaultOpenAPIV3Config(sampleopenapi.GetOpenAPIDefinitions, openapi.NewDefinitionNamer(apiserver.Scheme))
+	serverConfig.OpenAPIV3Config = genericapiserver.DefaultOpenAPIV3Config(getOpenAPIDefinitionsWithFallback, openapi.NewDefinitionNamer(apiserver.Scheme))
 	serverConfig.OpenAPIV3Config.Info.Title = "Bucket"
 	serverConfig.OpenAPIV3Config.Info.Version = "0.1"
 
@@ -221,7 +254,9 @@ func (o BucketServerOptions) RunBucketServer(ctx context.Context) error {
 
 	server.GenericAPIServer.AddPostStartHookOrDie("start-sample-server-informers", func(context genericapiserver.PostStartHookContext) error {
 		config.GenericConfig.SharedInformerFactory.Start(context.Done())
-		o.SharedInformerFactory.Start(context.Done())
+		if o.SharedInformerFactory != nil {
+			o.SharedInformerFactory.Start(context.Done())
+		}
 		return nil
 	})
 
