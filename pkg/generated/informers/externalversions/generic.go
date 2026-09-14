@@ -57,8 +57,6 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 	// Group=provider-ceph.ceph.crossplane.io, Version=v1alpha1
 	case v1alpha1.SchemeGroupVersion.WithResource("buckets"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Providerceph().V1alpha1().Buckets().Informer()}, nil
-	case v1alpha1.SchemeGroupVersion.WithResource("bucketlists"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Providerceph().V1alpha1().BucketLists().Informer()}, nil
 
 		// Group=wardle.example.com, Version=v1alpha1
 	case wardlev1alpha1.SchemeGroupVersion.WithResource("fischers"):

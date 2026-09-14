@@ -226,7 +226,6 @@ type Bucket struct {
 
 // BucketList contains a list of Bucket
 // +k8s:openapi-gen=true
-// +genclient
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 type BucketList struct {
 	metav1.TypeMeta `json:",inline"`

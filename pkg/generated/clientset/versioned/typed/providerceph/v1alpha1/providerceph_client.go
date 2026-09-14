@@ -29,7 +29,6 @@ import (
 type ProvidercephV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	BucketsGetter
-	BucketListsGetter
 }
 
 // ProvidercephV1alpha1Client is used to interact with features provided by the provider-ceph.ceph.crossplane.io group.
@@ -39,10 +38,6 @@ type ProvidercephV1alpha1Client struct {
 
 func (c *ProvidercephV1alpha1Client) Buckets(namespace string) BucketInterface {
 	return newBuckets(c, namespace)
-}
-
-func (c *ProvidercephV1alpha1Client) BucketLists(namespace string) BucketListInterface {
-	return newBucketLists(c, namespace)
 }
 
 // NewForConfig creates a new ProvidercephV1alpha1Client for the given config.

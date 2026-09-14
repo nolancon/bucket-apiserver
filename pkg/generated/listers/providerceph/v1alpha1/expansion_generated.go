@@ -25,11 +25,3 @@ type BucketListerExpansion interface{}
 // BucketNamespaceListerExpansion allows custom methods to be added to
 // BucketNamespaceLister.
 type BucketNamespaceListerExpansion interface{}
-
-// BucketListListerExpansion allows custom methods to be added to
-// BucketListLister.
-type BucketListListerExpansion interface{}
-
-// BucketListNamespaceListerExpansion allows custom methods to be added to
-// BucketListNamespaceLister.
-type BucketListNamespaceListerExpansion interface{}

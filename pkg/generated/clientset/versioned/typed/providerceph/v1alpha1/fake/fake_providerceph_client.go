@@ -32,10 +32,6 @@ func (c *FakeProvidercephV1alpha1) Buckets(namespace string) v1alpha1.BucketInte
 	return newFakeBuckets(c, namespace)
 }
 
-func (c *FakeProvidercephV1alpha1) BucketLists(namespace string) v1alpha1.BucketListInterface {
-	return newFakeBucketLists(c, namespace)
-}
-
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeProvidercephV1alpha1) RESTClient() rest.Interface {

@@ -26,8 +26,6 @@ import (
 type Interface interface {
 	// Buckets returns a BucketInformer.
 	Buckets() BucketInformer
-	// BucketLists returns a BucketListInformer.
-	BucketLists() BucketListInformer
 }
 
 type version struct {
@@ -44,9 +42,4 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Buckets returns a BucketInformer.
 func (v *version) Buckets() BucketInformer {
 	return &bucketInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
-}
-
-// BucketLists returns a BucketListInformer.
-func (v *version) BucketLists() BucketListInformer {
-	return &bucketListInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
