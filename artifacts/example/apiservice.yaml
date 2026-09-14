@@ -1,13 +1,13 @@
 apiVersion: apiregistration.k8s.io/v1
 kind: APIService
 metadata:
-  name: v1alpha1.wardle.example.com
+  name: v1alpha1.provider-ceph.ceph.crossplane.io
 spec:
   insecureSkipTLSVerify: true
-  group: wardle.example.com
+  group: provider-ceph.ceph.crossplane.io
   groupPriorityMinimum: 1000
   versionPriority: 15
   service:
     name: api
-    namespace: wardle
+    namespace: bucket-apiserver
   version: v1alpha1
