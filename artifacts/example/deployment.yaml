@@ -22,7 +22,7 @@ spec:
         # or
         # docker pull registry.k8s.io/e2e-test-images/sample-apiserver:1.17.4
         # docker tag registry.k8s.io/e2e-test-images/sample-apiserver:1.17.4 kube-sample-apiserver:latest
-        image: nolancon/bucket-apiserver:v0.0.11
+        image: nolancon/bucket-apiserver:v0.0.12
         imagePullPolicy: Always
         args: [ "--etcd-servers=http://localhost:2379" ]
       - name: etcd
