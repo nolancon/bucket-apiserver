@@ -81,11 +81,11 @@ func (bucketStrategy) Validate(ctx context.Context, obj runtime.Object) field.Er
 // WarningsOnCreate returns warnings for the creation of the given object.
 func (bucketStrategy) WarningsOnCreate(ctx context.Context, obj runtime.Object) []string { return nil }
 
-func (bucketStrategy) AllowCreateOnUpdate(ctx context.Context) bool {
+func (bucketStrategy) AllowCreateOnUpdate() bool {
 	return false
 }
 
-func (bucketStrategy) AllowUnconditionalUpdate(ctx context.Context) bool {
+func (bucketStrategy) AllowUnconditionalUpdate() bool {
 	return false
 }
 

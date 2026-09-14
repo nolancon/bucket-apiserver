@@ -27,7 +27,7 @@ import (
 	"k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1"
 	"k8s.io/sample-apiserver/pkg/apis/wardle/install"
 	"k8s.io/sample-apiserver/pkg/registry"
-	flunderstorage "k8s.io/sample-apiserver/pkg/registry/wardle/flunder"
+	bucketstorage "k8s.io/sample-apiserver/pkg/registry/providerceph/bucket"
 )
 
 var (
@@ -107,7 +107,7 @@ func (c completedConfig) New() (*BucketAPIServer, error) {
 	apiGroupInfo := genericapiserver.NewDefaultAPIGroupInfo(v1alpha1.Group, Scheme, metav1.ParameterCodec, Codecs)
 
 	v1alpha1storage := map[string]rest.Storage{}
-	v1alpha1storage["buckets"] = registry.RESTInPeace(flunderstorage.NewREST(Scheme, c.GenericConfig.RESTOptionsGetter))
+	v1alpha1storage["buckets"] = registry.RESTInPeace(bucketstorage.NewREST(Scheme, c.GenericConfig.RESTOptionsGetter))
 	apiGroupInfo.VersionedResourcesStorageMap["v1alpha1"] = v1alpha1storage
 
 	if err := s.GenericAPIServer.InstallAPIGroup(&apiGroupInfo); err != nil {
