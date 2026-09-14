@@ -26,8 +26,8 @@ import (
 
 func main() {
 	ctx := genericapiserver.SetupSignalContext()
-	options := server.NewWardleServerOptions(os.Stdout, os.Stderr)
-	cmd := server.NewCommandStartWardleServer(ctx, options, false)
+	options := server.NewBucketServerOptions(os.Stdout, os.Stderr)
+	cmd := server.NewCommandStartBucketServer(ctx, options, false)
 	code := cli.Run(cmd)
 	os.Exit(code)
 }
