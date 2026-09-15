@@ -22,11 +22,9 @@ import (
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	testing "k8s.io/client-go/testing"
-	v1alpha1 "k8s.io/sample-apiserver/pkg/apis/providerceph/v1alpha1"
 	wardlev1alpha1 "k8s.io/sample-apiserver/pkg/apis/wardle/v1alpha1"
 	v1beta1 "k8s.io/sample-apiserver/pkg/apis/wardle/v1beta1"
 	internal "k8s.io/sample-apiserver/pkg/generated/applyconfiguration/internal"
-	providercephv1alpha1 "k8s.io/sample-apiserver/pkg/generated/applyconfiguration/providerceph/v1alpha1"
 	applyconfigurationwardlev1alpha1 "k8s.io/sample-apiserver/pkg/generated/applyconfiguration/wardle/v1alpha1"
 	wardlev1beta1 "k8s.io/sample-apiserver/pkg/generated/applyconfiguration/wardle/v1beta1"
 )
@@ -35,67 +33,8 @@ import (
 // apply configuration type exists for the given GroupVersionKind.
 func ForKind(kind schema.GroupVersionKind) interface{} {
 	switch kind {
-	// Group=provider-ceph.ceph.crossplane.io, Version=v1alpha1
-	case v1alpha1.SchemeGroupVersion.WithKind("AbortIncompleteMultipartUpload"):
-		return &providercephv1alpha1.AbortIncompleteMultipartUploadApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("AccessControlPolicy"):
-		return &providercephv1alpha1.AccessControlPolicyApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("BackendInfo"):
-		return &providercephv1alpha1.BackendInfoApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("Bucket"):
-		return &providercephv1alpha1.BucketApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("BucketLifecycleConfiguration"):
-		return &providercephv1alpha1.BucketLifecycleConfigurationApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("BucketObservation"):
-		return &providercephv1alpha1.BucketObservationApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("BucketParameters"):
-		return &providercephv1alpha1.BucketParametersApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("BucketSpec"):
-		return &providercephv1alpha1.BucketSpecApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("BucketStatus"):
-		return &providercephv1alpha1.BucketStatusApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("CORSConfiguration"):
-		return &providercephv1alpha1.CORSConfigurationApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("CORSRule"):
-		return &providercephv1alpha1.CORSRuleApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("DefaultRetention"):
-		return &providercephv1alpha1.DefaultRetentionApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("Grant"):
-		return &providercephv1alpha1.GrantApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("Grantee"):
-		return &providercephv1alpha1.GranteeApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("LifecycleExpiration"):
-		return &providercephv1alpha1.LifecycleExpirationApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("LifecycleRule"):
-		return &providercephv1alpha1.LifecycleRuleApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("LifecycleRuleAndOperator"):
-		return &providercephv1alpha1.LifecycleRuleAndOperatorApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("LifecycleRuleFilter"):
-		return &providercephv1alpha1.LifecycleRuleFilterApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("NoncurrentVersionExpiration"):
-		return &providercephv1alpha1.NoncurrentVersionExpirationApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("NoncurrentVersionTransition"):
-		return &providercephv1alpha1.NoncurrentVersionTransitionApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("ObjectLockConfiguration"):
-		return &providercephv1alpha1.ObjectLockConfigurationApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("ObjectLockRule"):
-		return &providercephv1alpha1.ObjectLockRuleApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("Owner"):
-		return &providercephv1alpha1.OwnerApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("ServerSideEncryptionByDefault"):
-		return &providercephv1alpha1.ServerSideEncryptionByDefaultApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("ServerSideEncryptionConfiguration"):
-		return &providercephv1alpha1.ServerSideEncryptionConfigurationApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("ServerSideEncryptionRule"):
-		return &providercephv1alpha1.ServerSideEncryptionRuleApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("Tag"):
-		return &providercephv1alpha1.TagApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("Transition"):
-		return &providercephv1alpha1.TransitionApplyConfiguration{}
-	case v1alpha1.SchemeGroupVersion.WithKind("VersioningConfiguration"):
-		return &providercephv1alpha1.VersioningConfigurationApplyConfiguration{}
 
-		// Group=wardle.example.com, Version=v1alpha1
+	// Group=wardle.example.com, Version=v1alpha1
 	case wardlev1alpha1.SchemeGroupVersion.WithKind("Fischer"):
 		return &applyconfigurationwardlev1alpha1.FischerApplyConfiguration{}
 	case wardlev1alpha1.SchemeGroupVersion.WithKind("Flunder"):
